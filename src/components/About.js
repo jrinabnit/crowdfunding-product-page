@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Heading, Paragraph } from "@theme-ui/components";
+import Header from "./Header";
 import Intro from "./Intro";
 import ProductCard from "./ProductCard";
 import Statistics from "./Statistics";
@@ -7,6 +8,7 @@ import Statistics from "./Statistics";
 const About = () => {
   return (
     <>
+      <Header />
       <Intro />
       <Statistics />
       <Card sx={{ p: 20 }}>
