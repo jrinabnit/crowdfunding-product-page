@@ -41,6 +41,8 @@ const theme = {
     },
   },
   colors: {
+    //light off-white background color
+    background: "#F7F6F2",
     //primary- shades of cyan
     moderateCyan: "hsl(176, 50%, 47%)",
     darkCyan: "hsl(176, 72%, 28%)",
@@ -56,8 +58,13 @@ const theme = {
       cursor: 'pointer',
       borderRadius: 35,
       padding: '1em',
+    },
+  },
+  cards: {
+    primary: {
+      background: '#FFFFFF',
+      borderRadius: 8,
     }
-
   }
 };
 

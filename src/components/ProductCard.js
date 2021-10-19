@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Heading, Paragraph, Button } from "theme-ui";
+import { Card, Box, Heading, Paragraph, Button } from "theme-ui";
 
 const ProductCard = () => {
   return (
-    <Box
+    <Card
       sx={{
         border: "1px solid darkGray",
         p: 20,
@@ -48,7 +48,7 @@ const ProductCard = () => {
           Select Reward
         </Button>
       </Box>
-    </Box>
+    </Card>
   );
 };
 

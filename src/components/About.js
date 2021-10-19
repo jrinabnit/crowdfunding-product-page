@@ -1,15 +1,18 @@
 import React from "react";
-import { Box, Heading, Paragraph } from "@theme-ui/components";
+import { Card, Heading, Paragraph } from "@theme-ui/components";
+import Intro from "./Intro";
 import ProductCard from "./ProductCard";
+import Statistics from "./Statistics";
 
 const About = () => {
-
-
-
   return (
     <>
-      <Box sx={{ p: 20 }}>
-        <Heading variant="heading3" sx={{ mb: 10 }}>About this project</Heading>
+      <Intro />
+      <Statistics />
+      <Card sx={{ p: 20 }}>
+        <Heading variant="heading3" sx={{ mb: 10 }}>
+          About this project
+        </Heading>
         <Paragraph>
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
           that elevates your screen to a more comfortable viewing height.
@@ -22,9 +25,8 @@ const About = () => {
           extra desk space below your computer to allow notepads, pens, and USB
           sticks to be stored under the stand.
         </Paragraph>
-      </Box>
-      <ProductCard />
-      
+        <ProductCard />
+      </Card>
     </>
   );
 };
