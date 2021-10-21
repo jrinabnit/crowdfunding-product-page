@@ -1,19 +1,35 @@
-import { Card, Heading, Paragraph } from "@theme-ui/components";
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Card, Heading, Paragraph, Progress } from "@theme-ui/components";
 
 const Statistics = () => {
+  const data = useStaticQuery(graphql`
+    {
+      statisticsJson {
+        daysLeft
+        fundsRaised
+        numberOfBackers
+      }
+    }
+  `);
+
+  const { daysLeft, fundsRaised, numberOfBackers } = data.statisticsJson;
+
   return (
-    <Card sx={{
-        display: 'flex',
-        flexDirection: ['column', 'row'],
-        textAlign: 'center',
-    }}>
-      <Heading variant="heading1">$89,914</Heading>
+    <Card
+      sx={{
+        display: "flex",
+        flexDirection: ["column", "row"],
+        textAlign: "center",
+      }}
+    >
+      <Heading variant="heading1">${fundsRaised}</Heading>
       <Paragraph>of $100,000 backed</Paragraph>
-      <Heading variant="heading1">5,007</Heading>
+      <Heading variant="heading1">{numberOfBackers}</Heading>
       <Paragraph>total backers</Paragraph>
-      <Heading variant="heading1">56</Heading>
+      <Heading variant="heading1">{daysLeft}</Heading>
       <Paragraph>days left</Paragraph>
+      <Progress variant="progress" max={100000} value={fundsRaised}></Progress>
     </Card>
   );
 };

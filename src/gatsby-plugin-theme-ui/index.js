@@ -23,17 +23,18 @@ const theme = {
       fontSize: 36,
     },
     heading2: {
-      fontSize: [26, 36],
+      fontSize: [22],
+      fontWeight: 700,
     },
     heading3: {
       fontSize: [16],
       fontWeight: 700,
-      color: 'black'
+      color: "black",
     },
     heading3Alt: {
       fontSize: [16],
       fontWeight: 700,
-      color: 'moderateCyan'
+      color: "moderateCyan",
     },
     paragraph: {
       fontSize: [16],
@@ -52,20 +53,72 @@ const theme = {
     darkGray: "hsl(0, 0%, 48%)",
   },
   buttons: {
+   
     primary: {
-      bg: 'moderateCyan',
-      color: '#FFFFFF',
-      cursor: 'pointer',
+      cursor: "pointer",
+      bg: "moderateCyan",
+      color: "#FFFFFF",
+      // cursor: 'pointer',
       borderRadius: 35,
-      padding: '1em',
+      padding: "1em",
+      margin: '1em',
+      "&:active": {
+        bg: "darkCyan",
+      },
     },
+    // alt: {
+    //   bg: "#FFFFFF",
+
+    //   "&:active": {
+    //     outlineColor: "moderateCyan",
+    //   },
+    // },
   },
   cards: {
     primary: {
-      background: '#FFFFFF',
+      background: "#FFFFFF",
       borderRadius: 8,
-    }
-  }
+    },
+    modal: {
+      border: "1px solid",
+      borderColor: 'darkGray',
+      borderRadius: 8,
+    },
+    activeModal: {
+      border: "1px solid",
+      borderColor: 'moderateCyan',
+      borderRadius: 8,
+    },
+  },
+  progress: {
+    color: "moderateCyan",
+    height: 10,
+    width: "90%",
+  },
+  forms: {
+    radio: {
+      cursor: "pointer",
+      color: 'moderateCyan',
+      borderColor: 'darkGray',
+    },
+    input: {
+      textAlign: 'center',
+      cursor: "pointer",
+      color: "black",
+      border: "1px solid darkGray",
+      borderRadius: 35,
+      width: 100,
+      p: '1em',
+      margin: '1em',
+      "&:focus": {
+        color: "black",
+        fontWeight: 700,
+        outline: 'none',
+        border: "1px solid",
+        borderColor: 'moderateCyan',
+      },
+    },
+  },
 };
 
 export default theme;

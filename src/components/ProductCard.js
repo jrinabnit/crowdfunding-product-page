@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Box, Heading, Paragraph, Button } from "theme-ui";
+import { Card, Flex, Heading, Paragraph, Button } from "theme-ui";
 
-const ProductCard = () => {
+const ProductCard = ({ quantity, text, title, pledge }) => {
   return (
     <Card
       sx={{
@@ -10,44 +10,39 @@ const ProductCard = () => {
         m: 20,
       }}
     >
-      <Box
+      <Flex
         sx={{
-          display: "flex",
           flexDirection: ["column", "row"],
           justifyContent: ["center", "space-between"],
           mb: 20,
         }}
       >
         <Heading variant="heading3" sx={{ mb: 10 }}>
-          Bamboo Stand
+          {title}
         </Heading>
-        <Heading variant="heading3Alt">Pledge $25 or more</Heading>
-      </Box>
-      <Paragraph sx={{ mb: 20 }}>
-        You get an ergonomic stand made of natural bamboo. You've helped us
-        launch our promotional campaign, and you’ll be added to a special Backer
-        member list.
-      </Paragraph>
-      <Box
+        <Heading variant="heading3Alt">Pledge ${pledge} or more</Heading>
+      </Flex>
+      <Paragraph sx={{ mb: 20 }}>{text}</Paragraph>
+      <Flex
         sx={{
-          display: "flex",
           flexDirection: ["column", "row"],
           justifyContent: ["center", "space-between"],
         }}
       >
         <Heading variant="heading1" sx={{ marginBottom: 20 }}>
-          101{"  "}
+          {quantity}
+          {"  "}
           <Paragraph as="paragraph">left</Paragraph>
         </Heading>
 
         <Button
           sx={{
-            alignSelf: ["left", 'right'],
+            alignSelf: ["left", "right"],
           }}
         >
           Select Reward
         </Button>
-      </Box>
+      </Flex>
     </Card>
   );
 };

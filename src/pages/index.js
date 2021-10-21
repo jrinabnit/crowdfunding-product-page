@@ -1,13 +1,15 @@
-import * as React from "react"
+import * as React from "react";
 import styles from "../index.css";
-import About from '../components/About'
+import About from "../components/About";
+import ModalCompleted from "../components/Modals";
 
 const IndexPage = () => {
   return (
-   
-  <About />
+    <>
+      <About />
+      <ModalCompleted />
+    </>
+  );
+};
 
-  )
-}
-
-export default IndexPage
+export default IndexPage;
