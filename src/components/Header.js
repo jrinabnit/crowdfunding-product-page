@@ -17,7 +17,7 @@ const Header = () => {
 
         <MenuButton sx={{ color: "#FFFFFF", display: ["show", "none"] }} />
         <Flex sx={{ 
-          display: [ "none", "show"],
+          display: [ "none"],
           justifyContent: 'space-evenly'
            }}>
             <Heading variant='navLinks' sx={{ mr: 20}}>About</Heading>

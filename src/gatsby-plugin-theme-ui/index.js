@@ -1,7 +1,6 @@
 import HeaderImgDesktop from "../assets/jpgs/image-hero-desktop.jpg";
 import HeaderImgMobile from "../assets/jpgs/image-hero-mobile.jpg";
 
-
 const theme = {
   breakpoints: ["@media (min-width: 400px)"],
   fonts: {
@@ -25,6 +24,7 @@ const theme = {
   text: {
     heading1: {
       fontSize: 36,
+      fontWeight: 700,
     },
     heading2: {
       fontSize: [22],
@@ -45,10 +45,10 @@ const theme = {
       color: "darkGray",
     },
     navLinks: {
-      fontSize: 24, 
+      fontSize: 24,
       fontWeight: 300,
-      color: '#FFFFFF',
-    }
+      color: "#FFFFFF",
+    },
   },
   colors: {
     //light off-white background color
@@ -62,25 +62,17 @@ const theme = {
     darkGray: "hsl(0, 0%, 48%)",
   },
   buttons: {
-   
     primary: {
       cursor: "pointer",
       bg: "moderateCyan",
       color: "#FFFFFF",
       borderRadius: 35,
       padding: "1em 2em",
-      margin: '1em',
+      margin: "1em",
       "&:active": {
         bg: "darkCyan",
       },
     },
-    // alt: {
-    //   bg: "#FFFFFF",
-
-    //   "&:active": {
-    //     outlineColor: "moderateCyan",
-    //   },
-    // },
   },
   cards: {
     primary: {
@@ -89,45 +81,53 @@ const theme = {
     },
     modal: {
       border: "1px solid",
-      borderColor: 'darkGray',
+      borderColor: "darkGray",
       borderRadius: 8,
     },
     activeModal: {
       border: "1px solid",
-      borderColor: 'moderateCyan',
+      borderColor: "moderateCyan",
       borderRadius: 8,
     },
   },
+  divider: {
+    bg: "darkGray",
+    opacity: 0.5,
+    width: "1px",
+    height: [100, 70],
+    margin: [-70, 0],
+    transform: ["rotate(90deg)", "rotate(0deg)"],
+    alignSelf: "center",
+  },
   progress: {
     color: "moderateCyan",
-    height: 10,
-    width: "90%",
+    height: 15,
+    width: [300, 550],
   },
   forms: {
     radio: {
       cursor: "pointer",
-      color: 'moderateCyan',
-      borderColor: 'darkGray',
+      color: "moderateCyan",
+      borderColor: "darkGray",
     },
     input: {
-      textAlign: 'center',
+      textAlign: "center",
       cursor: "pointer",
       color: "black",
       border: "1px solid darkGray",
       borderRadius: 35,
       width: 100,
-      p: '1em 2em',
-      m: '1em',
+      p: "1em 2em",
+      m: "1em",
       "&:focus": {
         color: "black",
         fontWeight: 700,
-        outline: 'none',
+        outline: "none",
         border: "1px solid",
-        borderColor: 'moderateCyan',
+        borderColor: "moderateCyan",
       },
     },
   },
-  
 };
 
 export default theme;
