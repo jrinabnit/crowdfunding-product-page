@@ -52,14 +52,14 @@ const Statistics = () => {
         >
           <Box sx={{ p: [5, 20] }}>
             <Heading variant="heading1" sx={{ mb: 10 }}>
-              ${fundsRaised}
+              ${fundsRaised.toLocaleString()}
             </Heading>
             <Paragraph>of $100,000 backed</Paragraph>
           </Box>
           <Divider variant="divider" />
           <Box sx={{ p: [5, 20] }}>
             <Heading variant="heading1" sx={{ mb: 10 }}>
-              {numberOfBackers}
+              {numberOfBackers.toLocaleString()}
             </Heading>
             <Paragraph>total backers</Paragraph>
           </Box>
