@@ -17,6 +17,7 @@ const ProductCardModal = ({ quantity, text, title, pledge }) => {
       sx={{
         m: 20,
         opacity: `${quantity > 0 ? 1 : 0.5}`,
+        
       }}
     >
       <Flex

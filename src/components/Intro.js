@@ -12,7 +12,8 @@ import Bookmark from "../assets/svgs/icon-bookmark.svg";
 
 const Intro = () => {
   return (
-    <Card sx={{ textAlign: "center" }}>
+    <Card sx={{ textAlign: "center", width: ["95vw", "650px",],
+    margin: "0 auto", }}>
       <Image src={Logo} alt="logo" />
       <Heading variant="heading1">Mastercraft Bamboo Monitor Riser</Heading>
       <Paragraph>

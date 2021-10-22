@@ -21,6 +21,8 @@ const Statistics = () => {
         display: "flex",
         flexDirection: ["column", "row"],
         textAlign: "center",
+        width: ["95vw", "650px",],
+        margin: "0 auto",
       }}
     >
       <Heading variant="heading1">${fundsRaised}</Heading>

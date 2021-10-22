@@ -29,7 +29,7 @@ const About = () => {
       <Header />
       <Intro />
       <Statistics />
-      <Card sx={{ p: 20 }}>
+      <Card sx={{ p: 20, width: ["95vw", "650px"], margin: "0 auto" }}>
         <Heading variant="heading3" sx={{ mb: 10 }}>
           About this project
         </Heading>
@@ -65,16 +65,12 @@ const ModalStart = ({ productData }) => {
   return (
     <Card
       sx={{
-        width: ["95vw", "50vw",],
+        width: ["95vw", "650px"],
         margin: "0 auto",
-        
       }}
     >
       <Box sx={{ m: 20 }}>
-        <Image
-          src={CloseMenuIcon}
-          sx={{ marginLeft: '100%'}}
-        />
+        <Image src={CloseMenuIcon} sx={{ marginLeft: "100%" }} />
         <Heading variant="heading2" sx={{ mb: 10 }}>
           Back this Project
         </Heading>
