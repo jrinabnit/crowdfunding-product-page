@@ -15,28 +15,30 @@ const ProductCardModal = ({ quantity, text, title, pledge }) => {
     <Card
       variant="modal"
       sx={{
-        p: 20,
         m: 20,
+        opacity: `${quantity > 0 ? 1 : 0.5}`,
       }}
     >
       <Flex
         sx={{
           justifyContent: ["start"],
           alignItems: ["center"],
-          mb: 20,
+          m: 20,
         }}
       >
-        <Radio name="product" checked="true" />
+        <Radio name="product" checked={pledge === 25 ? true : false} />
         <Flex
           sx={{
             flexDirection: ["column", "row"],
             justifyContent: ["center"],
-            alignItems: "center",
+            // alignItems: "center",
           }}
         >
           <Heading
             variant="heading3"
             sx={{
+              mb: [10, 0],
+              mr: [0, 20],
               cursor: "pointer",
               "&:hover": {
                 color: "moderateCyan",
@@ -49,28 +51,30 @@ const ProductCardModal = ({ quantity, text, title, pledge }) => {
         </Flex>
       </Flex>
 
-      <Paragraph sx={{ mb: 20 }}>{text}</Paragraph>
+      <Paragraph sx={{ 
+          m: 20,
+          ml: 20,
+      
+       }}>{text}</Paragraph>
       <Flex
         sx={{
           flexDirection: ["column", "row"],
           justifyContent: ["center", "space-between"],
         }}
       >
-        <Heading variant="heading1" sx={{ marginBottom: 20 }}>
+        <Heading variant="heading2" sx={{ m: 20 }}>
           {quantity}
           {"  "}
           <Paragraph as="paragraph">left</Paragraph>
         </Heading>
       </Flex>
 
-
-
-
       {/* Selected product shows this box and gets highlighted */}
       <Box
         sx={{
           textAlign: "center",
           borderTop: "1px solid darkGray",
+          display: `${quantity > 0 ? "show" : "none"}`,
         }}
       >
         <Flex
@@ -78,6 +82,7 @@ const ProductCardModal = ({ quantity, text, title, pledge }) => {
             flexDirection: ["column", "row"],
             justifyContent: ["space-between"],
             alignItems: "center",
+            m: 20,
           }}
         >
           <Paragraph>Enter your pledge</Paragraph>

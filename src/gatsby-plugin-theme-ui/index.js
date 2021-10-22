@@ -1,3 +1,7 @@
+import HeaderImgDesktop from "../assets/jpgs/image-hero-desktop.jpg";
+import HeaderImgMobile from "../assets/jpgs/image-hero-mobile.jpg";
+
+
 const theme = {
   breakpoints: ["@media (min-width: 400px)"],
   fonts: {
@@ -58,9 +62,8 @@ const theme = {
       cursor: "pointer",
       bg: "moderateCyan",
       color: "#FFFFFF",
-      // cursor: 'pointer',
       borderRadius: 35,
-      padding: "1em",
+      padding: "1em 2em",
       margin: '1em',
       "&:active": {
         bg: "darkCyan",
@@ -108,8 +111,8 @@ const theme = {
       border: "1px solid darkGray",
       borderRadius: 35,
       width: 100,
-      p: '1em',
-      margin: '1em',
+      p: '1em 2em',
+      m: '1em',
       "&:focus": {
         color: "black",
         fontWeight: 700,
@@ -119,6 +122,7 @@ const theme = {
       },
     },
   },
+  
 };
 
 export default theme;

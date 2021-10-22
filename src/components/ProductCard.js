@@ -8,6 +8,7 @@ const ProductCard = ({ quantity, text, title, pledge }) => {
         border: "1px solid darkGray",
         p: 20,
         m: 20,
+        opacity: `${quantity > 0 ? 1 : .5}`,
       }}
     >
       <Flex
