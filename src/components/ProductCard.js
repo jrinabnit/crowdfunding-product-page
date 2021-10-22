@@ -6,9 +6,9 @@ const ProductCard = ({ quantity, text, title, pledge }) => {
     <Card
       sx={{
         border: "1px solid darkGray",
-        p: 20,
+        p: 25,
         m: 20,
-        opacity: `${quantity > 0 ? 1 : .5}`,
+        opacity: `${quantity > 0 ? 1 : 0.5}`,
       }}
     >
       <Flex
@@ -30,7 +30,13 @@ const ProductCard = ({ quantity, text, title, pledge }) => {
           justifyContent: ["center", "space-between"],
         }}
       >
-        <Heading variant="heading1" sx={{ marginBottom: 20 }}>
+        <Heading
+          variant="heading1"
+          sx={{
+            mb: [20, 0],
+            mt: [0, 20],
+          }}
+        >
           {quantity}
           {"  "}
           <Paragraph as="paragraph">left</Paragraph>
@@ -38,7 +44,8 @@ const ProductCard = ({ quantity, text, title, pledge }) => {
 
         <Button
           sx={{
-            alignSelf: ["left", "right"],
+            alignSelf: "start",
+            ml: 0,
           }}
         >
           Select Reward

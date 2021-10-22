@@ -43,6 +43,7 @@ const theme = {
     paragraph: {
       fontSize: [16],
       color: "darkGray",
+      lineHeight: 1.75,
     },
     navLinks: {
       fontSize: 24,
