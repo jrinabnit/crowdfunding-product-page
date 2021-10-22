@@ -68,13 +68,14 @@ const ModalStart = ({ productData }) => {
   return (
     <Card
       sx={{
-        width: ["95vw", "650px"],
-        margin: "0 auto",
+        p: [10, 20], width: ["98vw", "650px"], 
+        margin: "0 auto" ,
+        my: 50,
       }}
     >
       <Box sx={{ m: 20 }}>
         <Image src={CloseMenuIcon} sx={{ marginLeft: "100%" }} />
-        <Heading variant="heading2" sx={{ mb: 10 }}>
+        <Heading variant="heading2" sx={{ mb: 20 }}>
           Back this Project
         </Heading>
         <Paragraph>
