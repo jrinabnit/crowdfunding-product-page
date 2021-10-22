@@ -44,6 +44,11 @@ const theme = {
       fontSize: [16],
       color: "darkGray",
     },
+    navLinks: {
+      fontSize: 24, 
+      fontWeight: 300,
+      color: '#FFFFFF',
+    }
   },
   colors: {
     //light off-white background color
