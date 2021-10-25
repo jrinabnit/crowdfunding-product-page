@@ -8,12 +8,21 @@ import {
   Radio,
   Input,
   Flex,
+  Label,
 } from "theme-ui";
 
-const ProductCardModal = ({ quantity, text, title, pledge, openModalTwo }) => {
+const ProductCardModal = ({
+  quantity,
+  text,
+  title,
+  pledge,
+  openModalTwo,
+  selected,
+  setSelected,
+}) => {
   return (
     <Card
-      variant="modal"
+      variant={title === selected ? "activeModal" : "modal"}
       sx={{
         m: 20,
         opacity: `${quantity > 0 ? 1 : 0.5}`,
@@ -26,7 +35,16 @@ const ProductCardModal = ({ quantity, text, title, pledge, openModalTwo }) => {
           m: 20,
         }}
       >
-        <Radio name="product" checked={pledge === 25 ? true : false} />
+        <Label
+             sx={{ width: 30 }} >
+          <Radio
+            name="product"
+            type="radio"
+            value={title}
+            defaultChecked={title === selected ? true : false}
+            onClick={(e) => setSelected(e.target.value)}
+          />
+        </Label>
         <Flex
           sx={{
             flexDirection: ["column", "row"],
@@ -73,37 +91,38 @@ const ProductCardModal = ({ quantity, text, title, pledge, openModalTwo }) => {
       </Flex>
 
       {/* Selected product shows this box and gets highlighted */}
-      <Box
-        sx={{
-          textAlign: "center",
-          borderTop: "1px solid darkGray",
-          display: `${quantity > 0 ? "show" : "none"}`,
-        }}
-      >
-        <Flex
+      {title === selected && (
+        <Box
           sx={{
-            flexDirection: ["column", "row"],
-            justifyContent: ["space-between"],
-            alignItems: "center",
-            m: 20,
+            textAlign: "center",
+            borderTop: "1px solid darkGray",
+            display: `${quantity > 0 ? "show" : "none"}`,
           }}
         >
-          <Paragraph>Enter your pledge</Paragraph>
-          <Flex>
-            <Input defaultValue={`$${pledge}`} />
+          <Flex
+            sx={{
+              flexDirection: ["column", "row"],
+              justifyContent: ["space-between"],
+              alignItems: "center",
+              m: 20,
+            }}
+          >
+            <Paragraph>Enter your pledge</Paragraph>
+            <Flex>
+              <Input defaultValue={`$${pledge}`} />
 
-            <Button
-              sx={{
-                alignSelf: ["left", "right"],
-              }}
-              onClick={() => openModalTwo()}
-              a={console.log(openModalTwo)}
-            >
-              Continue
-            </Button>
+              <Button
+                sx={{
+                  alignSelf: ["left", "right"],
+                }}
+                onClick={() => openModalTwo()}
+              >
+                Continue
+              </Button>
+            </Flex>
           </Flex>
-        </Flex>
-      </Box>
+        </Box>
+      )}
     </Card>
   );
 };

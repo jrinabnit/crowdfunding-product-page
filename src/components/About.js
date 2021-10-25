@@ -20,17 +20,21 @@ import ModalTwo from "./Modals";
 const About = () => {
   const [isOpenModalOne, setIsOpenModalOne] = React.useState(false);
   const [isOpenModalTwo, setIsOpenModalTwo] = React.useState(false);
+  const [selected, setSelected] = React.useState();
 
-  function openModalOne() {
+  function openModalOne(e) {
     setIsOpenModalOne(true);
-    console.log("opened modal one");
+    setSelected(e.target.value);
   }
+
+  React.useEffect(
+    () => console.log(selected + " is the selected item"),
+    [selected]
+  );
 
   function openModalTwo() {
     setIsOpenModalOne(false);
-    console.log("closed modal one");
     setIsOpenModalTwo(true);
-    console.log("opened modal two");
   }
 
   function closeModalOne() {
@@ -39,6 +43,19 @@ const About = () => {
   function closeModalTwo() {
     setIsOpenModalTwo(false);
   }
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      width: ["95vw", "500px"],
+      height: "90vh",
+    },
+  };
 
   const data = useStaticQuery(graphql`
     {
@@ -94,6 +111,9 @@ const About = () => {
         isOpenModalOne={isOpenModalOne}
         closeModalOne={closeModalOne}
         openModalTwo={openModalTwo}
+        customStyles={customStyles}
+        selected={selected}
+        setSelected={setSelected}
       />
       <ModalTwo isOpenModalTwo={isOpenModalTwo} closeModalTwo={closeModalTwo} />
     </>
@@ -107,39 +127,53 @@ const ModalStart = ({
   isOpenModalOne,
   closeModalOne,
   openModalTwo,
+  customStyles,
+  selected,
+  setSelected,
 }) => {
   return (
-    <Modal
-      isOpen={isOpenModalOne}
-      sx={{
-        p: [10, 20],
-        width: ["98vw", "650px"],
-        margin: "0 auto",
-        my: 50,
-      }}
-    >
-      <Box sx={{ m: 20 }}>
-        <Button onClick={() => closeModalOne()}>
-          <Image src={CloseMenuIcon} sx={{ marginLeft: "100%" }} />
-        </Button>
+    <Modal style={customStyles} isOpen={isOpenModalOne}>
+      <Card
+        sx={{
+          p: [10, 20],
+          width: ["98vw", "650px"],
+          margin: "0 auto",
+          my: 0,
+        }}
+      >
+        <Box sx={{ m: 20 }}>
+          <Button
+            sx={{
+              marginLeft: "93%",
+              marginBottom: "-30%",
+              padding: 0,
+              bg: "inherit",
+            }}
+            onClick={() => closeModalOne()}
+          >
+            <Image src={CloseMenuIcon} sx={{ height: "20px", width: "20px" }} />
+          </Button>
 
-        <Heading variant="heading2" sx={{ mb: 20 }}>
-          Back this Project
-        </Heading>
-        <Paragraph>
-          Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
-          the world?
-        </Paragraph>
-      </Box>
-      {productData.map((product) => (
-        <ProductCardModal
-          quantity={product.quantity}
-          text={product.text}
-          title={product.title}
-          pledge={product.pledge}
-          openModalTwo={openModalTwo}
-        />
-      ))}
+          <Heading variant="heading2" sx={{ mb: 20 }}>
+            Back this Project
+          </Heading>
+          <Paragraph>
+            Want to support us in bringing Mastercraft Bamboo Monitor Riser out
+            in the world?
+          </Paragraph>
+        </Box>
+        {productData.map((product) => (
+          <ProductCardModal
+            quantity={product.quantity}
+            text={product.text}
+            title={product.title}
+            pledge={product.pledge}
+            openModalTwo={openModalTwo}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        ))}
+      </Card>
     </Modal>
   );
 };

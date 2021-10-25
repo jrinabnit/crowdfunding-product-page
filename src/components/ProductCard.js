@@ -48,7 +48,8 @@ const ProductCard = ({ quantity, text, title, pledge, openModalOne }) => {
             alignSelf: "start",
             ml: 0,
           }}
-          onClick={() => openModalOne()}
+          value={title}
+          onClick={(e) => openModalOne(e)}
         >
           Select Reward
         </Button>

@@ -1,15 +1,27 @@
 import React from "react";
 import Modal from "react-modal";
-import { useStaticQuery, graphql } from "gatsby";
 import { Heading, Paragraph, Image, Button, Card } from "@theme-ui/components";
 import CheckIcon from "../assets/svgs/icon-check.svg";
 
 const ModalTwo = ({ isOpenModalTwo, closeModalTwo }) => {
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      overflow: 'scroll',
+      width: ["95vw", "500px"],
+    },
+  };
+
   return (
     <Modal
-      variant="modal"
+      style={customStyles}
       isOpen={isOpenModalTwo}
-      sx={{ textAlign: "center", width: ["95vw", "500px"], margin: "0 auto" }}
     >
       <Card
         sx={{ textAlign: "center", width: ["95vw", "500px"], margin: "0 auto" }}
