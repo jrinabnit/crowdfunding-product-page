@@ -86,7 +86,7 @@ const theme = {
       borderRadius: 8,
     },
     activeModal: {
-      border: "1px solid",
+      border: "4px solid",
       borderColor: "moderateCyan",
       borderRadius: 8,
     },

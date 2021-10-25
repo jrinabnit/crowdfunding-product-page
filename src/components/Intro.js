@@ -10,7 +10,7 @@ import {
 import Logo from "../assets/svgs/logo-mastercraft.svg";
 import Bookmark from "../assets/svgs/icon-bookmark.svg";
 
-const Intro = ({openModalOne}) => {
+const Intro = ({ openModalOne }) => {
   return (
     <Card
       sx={{
@@ -32,20 +32,20 @@ const Intro = ({openModalOne}) => {
       <Paragraph>
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </Paragraph>
-      <Flex
-        sx={{ justifyContent: ["center", "space-between"] }}
-      >
-        <Button 
-        onClick= {()=> openModalOne()}
-        >Back this project</Button>
+      <Flex sx={{ justifyContent: ["center", "space-between"] }}>
+        <Button onClick={() => openModalOne()}>Back this project</Button>
         <Button
           sx={{
             py: 0,
             pl: 0,
-           
           }}
         >
-          <Image src={Bookmark} alt="bookmark" sx={{ pr: '1em', height: '100%' }} /> Bookmark
+          <Image
+            src={Bookmark}
+            alt="bookmark"
+            sx={{ pr: "1em", height: "100%" }}
+          />{" "}
+          Bookmark
         </Button>
       </Flex>
     </Card>

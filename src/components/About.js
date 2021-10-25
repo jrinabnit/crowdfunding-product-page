@@ -8,6 +8,7 @@ import {
   Paragraph,
   Image,
   Button,
+  Close,
 } from "@theme-ui/components";
 import Header from "./Header";
 import Intro from "./Intro";
@@ -137,23 +138,17 @@ const ModalStart = ({
         sx={{
           p: [10, 20],
           width: ["98vw", "650px"],
-          margin: "0 auto",
-          my: 0,
+          m: "0 auto",
         }}
       >
         <Box sx={{ m: 20 }}>
-          <Button
-            sx={{
-              marginLeft: "93%",
-              marginBottom: "-30%",
-              padding: 0,
-              bg: "inherit",
-            }}
+          <Close
             onClick={() => closeModalOne()}
-          >
-            <Image src={CloseMenuIcon} sx={{ height: "20px", width: "20px" }} />
-          </Button>
-
+            sx={{
+              ml: "93%",
+              mb: "-30%",
+            }}
+          />
           <Heading variant="heading2" sx={{ mb: 20 }}>
             Back this Project
           </Heading>
