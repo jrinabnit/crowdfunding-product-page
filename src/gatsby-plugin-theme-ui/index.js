@@ -91,6 +91,9 @@ const theme = {
       borderRadius: 8,
     },
   },
+  modals: {
+    bg: 'red',
+  },
   divider: {
     bg: "darkGray",
     opacity: 0.5,

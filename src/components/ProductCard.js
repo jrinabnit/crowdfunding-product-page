@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Flex, Heading, Paragraph, Button } from "theme-ui";
 
-const ProductCard = ({ quantity, text, title, pledge }) => {
+const ProductCard = ({ quantity, text, title, pledge, openModalOne }) => {
+ 
   return (
     <Card
       sx={{
@@ -47,6 +48,7 @@ const ProductCard = ({ quantity, text, title, pledge }) => {
             alignSelf: "start",
             ml: 0,
           }}
+          onClick={() => openModalOne()}
         >
           Select Reward
         </Button>

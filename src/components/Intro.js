@@ -11,7 +11,7 @@ import {
 import Logo from "../assets/svgs/logo-mastercraft.svg";
 import Bookmark from "../assets/svgs/icon-bookmark.svg";
 
-const Intro = () => {
+const Intro = ({openModalOne}) => {
   return (
     <Card
       sx={{
@@ -19,7 +19,7 @@ const Intro = () => {
         width: ["95vw", "650px"],
         margin: "-100px auto 0 auto",
         position: "relative",
-        zIndex: 3,
+        zIndex: 2,
       }}
     >
       <Image
@@ -36,7 +36,9 @@ const Intro = () => {
       <Flex
         sx={{ justifyContent: ["center", "space-between"] }}
       >
-        <Button>Back this project</Button>
+        <Button 
+        onClick= {()=> openModalOne()}
+        >Back this project</Button>
         <Button
           sx={{
             py: 0,

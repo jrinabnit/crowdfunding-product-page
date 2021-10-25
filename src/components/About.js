@@ -1,14 +1,45 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Card, Box, Heading, Paragraph, Image } from "@theme-ui/components";
+import Modal from "react-modal";
+import {
+  Card,
+  Box,
+  Heading,
+  Paragraph,
+  Image,
+  Button,
+} from "@theme-ui/components";
 import Header from "./Header";
 import Intro from "./Intro";
 import ProductCard from "./ProductCard";
 import Statistics from "./Statistics";
 import CloseMenuIcon from "../assets/svgs/icon-close-modal.svg";
 import ProductCardModal from "./ProductCardModal";
+import ModalTwo from "./Modals";
 
 const About = () => {
+  const [isOpenModalOne, setIsOpenModalOne] = React.useState(false);
+  const [isOpenModalTwo, setIsOpenModalTwo] = React.useState(false);
+
+  function openModalOne() {
+    setIsOpenModalOne(true);
+    console.log("opened modal one");
+  }
+
+  function openModalTwo() {
+    setIsOpenModalOne(false);
+    console.log("closed modal one");
+    setIsOpenModalTwo(true);
+    console.log("opened modal two");
+  }
+
+  function closeModalOne() {
+    setIsOpenModalOne(false);
+  }
+  function closeModalTwo() {
+    setIsOpenModalTwo(false);
+  }
+
   const data = useStaticQuery(graphql`
     {
       allProductsJson {
@@ -27,7 +58,7 @@ const About = () => {
   return (
     <>
       <Header />
-      <Intro />
+      <Intro openModalOne={openModalOne} />
       <Statistics />
       <Card sx={{ p: [10, 20], width: ["98vw", "650px"], margin: "0 auto" }}>
         <Box sx={{ p: 20 }}>
@@ -41,7 +72,7 @@ const About = () => {
             improve your posture and make you more comfortable while at work,
             helping you stay focused on the task at hand.{" "}
           </Paragraph>
-          <br/>
+          <br />
           <Paragraph>
             Featuring artisan craftsmanship, the simplicity of design creates
             extra desk space below your computer to allow notepads, pens, and
@@ -54,27 +85,44 @@ const About = () => {
             text={product.text}
             title={product.title}
             pledge={product.pledge}
+            openModalOne={openModalOne}
           />
         ))}
       </Card>
-      <ModalStart productData={productData} />
+      <ModalStart
+        productData={productData}
+        isOpenModalOne={isOpenModalOne}
+        closeModalOne={closeModalOne}
+        openModalTwo={openModalTwo}
+      />
+      <ModalTwo isOpenModalTwo={isOpenModalTwo} closeModalTwo={closeModalTwo} />
     </>
   );
 };
 
 export default About;
 
-const ModalStart = ({ productData }) => {
+const ModalStart = ({
+  productData,
+  isOpenModalOne,
+  closeModalOne,
+  openModalTwo,
+}) => {
   return (
-    <Card
+    <Modal
+      isOpen={isOpenModalOne}
       sx={{
-        p: [10, 20], width: ["98vw", "650px"], 
-        margin: "0 auto" ,
+        p: [10, 20],
+        width: ["98vw", "650px"],
+        margin: "0 auto",
         my: 50,
       }}
     >
       <Box sx={{ m: 20 }}>
-        <Image src={CloseMenuIcon} sx={{ marginLeft: "100%" }} />
+        <Button onClick={() => closeModalOne()}>
+          <Image src={CloseMenuIcon} sx={{ marginLeft: "100%" }} />
+        </Button>
+
         <Heading variant="heading2" sx={{ mb: 20 }}>
           Back this Project
         </Heading>
@@ -89,8 +137,9 @@ const ModalStart = ({ productData }) => {
           text={product.text}
           title={product.title}
           pledge={product.pledge}
+          openModalTwo={openModalTwo}
         />
       ))}
-    </Card>
+    </Modal>
   );
 };

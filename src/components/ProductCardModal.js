@@ -10,14 +10,13 @@ import {
   Flex,
 } from "theme-ui";
 
-const ProductCardModal = ({ quantity, text, title, pledge }) => {
+const ProductCardModal = ({ quantity, text, title, pledge, openModalTwo }) => {
   return (
     <Card
       variant="modal"
       sx={{
         m: 20,
         opacity: `${quantity > 0 ? 1 : 0.5}`,
-        
       }}
     >
       <Flex
@@ -52,11 +51,14 @@ const ProductCardModal = ({ quantity, text, title, pledge }) => {
         </Flex>
       </Flex>
 
-      <Paragraph sx={{ 
+      <Paragraph
+        sx={{
           m: 20,
           ml: 20,
-      
-       }}>{text}</Paragraph>
+        }}
+      >
+        {text}
+      </Paragraph>
       <Flex
         sx={{
           flexDirection: ["column", "row"],
@@ -94,6 +96,8 @@ const ProductCardModal = ({ quantity, text, title, pledge }) => {
               sx={{
                 alignSelf: ["left", "right"],
               }}
+              onClick={() => openModalTwo()}
+              a={console.log(openModalTwo)}
             >
               Continue
             </Button>

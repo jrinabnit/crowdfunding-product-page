@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <>
       <About />
-      <ModalCompleted />
+      
     </>
   );
 };
