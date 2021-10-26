@@ -6,15 +6,12 @@ import {
   Box,
   Heading,
   Paragraph,
-  Image,
-  Button,
   Close,
 } from "@theme-ui/components";
 import Header from "./Header";
 import Intro from "./Intro";
 import ProductCard from "./ProductCard";
 import Statistics from "./Statistics";
-import CloseMenuIcon from "../assets/svgs/icon-close-modal.svg";
 import ProductCardModal from "./ProductCardModal";
 import ModalTwo from "./Modals";
 
@@ -25,7 +22,12 @@ const About = () => {
 
   function openModalOne(e) {
     setIsOpenModalOne(true);
-    setSelected(e.target.value);
+
+    if (e) {
+      setSelected(e.target.value);
+    } else {
+      setSelected("Bamboo Stand");
+    }
   }
 
   React.useEffect(

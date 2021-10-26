@@ -18,7 +18,7 @@ const Intro = ({ openModalOne }) => {
         width: ["95vw", "650px"],
         margin: "-100px auto 0 auto",
         position: "relative",
-        zIndex: 2,
+        // zIndex: 2,
       }}
     >
       <Image

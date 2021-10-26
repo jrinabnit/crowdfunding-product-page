@@ -75,6 +75,11 @@ const theme = {
       },
     },
   },
+  images: {
+    header: {
+      src: [HeaderImgMobile, HeaderImgDesktop],
+    },
+  },
   cards: {
     primary: {
       background: "#FFFFFF",
@@ -89,6 +94,18 @@ const theme = {
       border: "4px solid",
       borderColor: "moderateCyan",
       borderRadius: 8,
+    },
+  },
+  modalsStyles: {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      overflow: 'scroll',
+      width: ["95vw", "500px"],
     },
   },
   divider: {

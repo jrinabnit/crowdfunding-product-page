@@ -21,6 +21,7 @@ const ModalTwo = ({ isOpenModalTwo, closeModalTwo }) => {
   return (
     <Modal
       style={customStyles}
+      
       isOpen={isOpenModalTwo}
     >
       <Card
