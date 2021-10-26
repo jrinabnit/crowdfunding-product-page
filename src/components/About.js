@@ -1,86 +1,16 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Modal from "react-modal";
-import {
-  Card,
-  Box,
-  Heading,
-  Paragraph,
-  Close,
-} from "@theme-ui/components";
-import Header from "./Header";
-import Intro from "./Intro";
+import React from 'react'
 import ProductCard from "./ProductCard";
-import Statistics from "./Statistics";
-import ProductCardModal from "./ProductCardModal";
-import ModalTwo from "./Modals";
+import {
+    Card,
+    Box,
+    Heading,
+    Paragraph,
 
-const About = () => {
-  const [isOpenModalOne, setIsOpenModalOne] = React.useState(false);
-  const [isOpenModalTwo, setIsOpenModalTwo] = React.useState(false);
-  const [selected, setSelected] = React.useState();
+  } from "@theme-ui/components";
 
-  function openModalOne(e) {
-    setIsOpenModalOne(true);
-
-    if (e) {
-      setSelected(e.target.value);
-    } else {
-      setSelected("Bamboo Stand");
-    }
-  }
-
-  React.useEffect(
-    () => console.log(selected + " is the selected item"),
-    [selected]
-  );
-
-  function openModalTwo() {
-    setIsOpenModalOne(false);
-    setIsOpenModalTwo(true);
-  }
-
-  function closeModalOne() {
-    setIsOpenModalOne(false);
-  }
-  function closeModalTwo() {
-    setIsOpenModalTwo(false);
-  }
-
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      width: ["95vw", "500px"],
-      height: "90vh",
-    },
-  };
-
-  const data = useStaticQuery(graphql`
-    {
-      allProductsJson {
-        nodes {
-          quantity
-          text
-          title
-          pledge
-        }
-      }
-    }
-  `);
-
-  const productData = data.allProductsJson.nodes;
-
-  return (
-    <>
-      <Header />
-      <Intro openModalOne={openModalOne} />
-      <Statistics />
-      <Card sx={{ p: [10, 20], width: ["98vw", "650px"], margin: "0 auto" }}>
+const About = ({productData, openModalOne}) => {
+    return (
+        <Card sx={{ p: [10, 20], width: ["98vw", "650px"], margin: "0 auto" }}>
         <Box sx={{ p: 20 }}>
           <Heading variant="heading2" sx={{ mb: 20 }}>
             About this project
@@ -109,68 +39,7 @@ const About = () => {
           />
         ))}
       </Card>
-      <ModalStart
-        productData={productData}
-        isOpenModalOne={isOpenModalOne}
-        closeModalOne={closeModalOne}
-        openModalTwo={openModalTwo}
-        customStyles={customStyles}
-        selected={selected}
-        setSelected={setSelected}
-      />
-      <ModalTwo isOpenModalTwo={isOpenModalTwo} closeModalTwo={closeModalTwo} />
-    </>
-  );
-};
+    )
+}
 
-export default About;
-
-const ModalStart = ({
-  productData,
-  isOpenModalOne,
-  closeModalOne,
-  openModalTwo,
-  customStyles,
-  selected,
-  setSelected,
-}) => {
-  return (
-    <Modal style={customStyles} isOpen={isOpenModalOne}>
-      <Card
-        sx={{
-          p: [10, 20],
-          width: ["98vw", "650px"],
-          m: "0 auto",
-        }}
-      >
-        <Box sx={{ m: 20 }}>
-          <Close
-            onClick={() => closeModalOne()}
-            sx={{
-              ml: "93%",
-              mb: "-30%",
-            }}
-          />
-          <Heading variant="heading2" sx={{ mb: 20 }}>
-            Back this Project
-          </Heading>
-          <Paragraph>
-            Want to support us in bringing Mastercraft Bamboo Monitor Riser out
-            in the world?
-          </Paragraph>
-        </Box>
-        {productData.map((product) => (
-          <ProductCardModal
-            quantity={product.quantity}
-            text={product.text}
-            title={product.title}
-            pledge={product.pledge}
-            openModalTwo={openModalTwo}
-            selected={selected}
-            setSelected={setSelected}
-          />
-        ))}
-      </Card>
-    </Modal>
-  );
-};
+export default About

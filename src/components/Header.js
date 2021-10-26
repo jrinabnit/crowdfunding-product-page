@@ -1,6 +1,6 @@
 import React from "react";
+import { useResponsiveValue } from "@theme-ui/match-media";
 import Modal from "react-modal";
-import Img from "gatsby-image";
 import HeaderImgDesktop from "../assets/jpgs/image-hero-desktop.jpg";
 import HeaderImgMobile from "../assets/jpgs/image-hero-mobile.jpg";
 import Logo from "../assets/svgs/logo.svg";
@@ -10,85 +10,87 @@ import {
   Image,
   MenuButton,
   Heading,
-  Paragraph,
   NavLink,
   Card,
   Close,
 } from "theme-ui";
 
 const Header = () => {
-  // const srcSetValues = ["400px"];
-  const sources = [HeaderImgMobile, HeaderImgDesktop];
   const [isOpenNav, setIsOpenNav] = React.useState(false);
 
   return (
-    <Box>
+    <>
       <Flex
         sx={{
           justifyContent: "space-between",
-          // position: "relative",
+          position: "relative",
         }}
       >
-        <Image src={Logo} alt="logo" />
+        <Image
+          src={Logo}
+          alt="logo"
+          sx={{
+            width: "20%",
+          }}
+        />
 
         <MenuButton
           onClick={() => setIsOpenNav(true)}
-          sx={{ color: "#FFFFFF", display: ["show", "none"] }}
-        />
-        {/* <Flex
           sx={{
-            display: ["none", "show"],
-            justifyContent: "space-evenly",
+            color: "#FFFFFF",
+            display: ["inline", "none"],
+          }}
+        />
+        <Flex
+          sx={{
+            display: ["none", "inline"],
+            // justifyContent: "space-around",
           }}
         >
           <NavLink>
-            <Heading variant="navLinks" sx={{ mr: 20, display: ["none", "show"], }}>
+            <Heading
+              variant="navLinks"
+              sx={{ mr: 20, display: ["none", "inline"] }}
+            >
               About
             </Heading>
           </NavLink>
 
           <NavLink>
-            <Heading variant="navLinks" sx={{ mr: 20, display: ["none", "show"], }}>
+            <Heading
+              variant="navLinks"
+              sx={{ mr: 20, display: ["none", "inline"] }}
+            >
               Discover
             </Heading>
           </NavLink>
           <NavLink>
-            <Heading variant="navLinks" sx={{ mr: 20, display: ["none", "show"], }}>
+            <Heading
+              variant="navLinks"
+              sx={{ mr: 20, display: ["none", "inline"] }}
+            >
               Get Started
             </Heading>
           </NavLink>
-        </Flex> */}
+        </Flex>
       </Flex>
 
-      {/* <Image
-        srcSet="HeaderImgMobile 375px, HeaderImgDesktop 400px"
-        sizes="(maxWidth: 375px) 375px, 400px "
-        src={HeaderImgDesktop}
-        alt="monitor stand"
+      <Box
+        as="picture"
         sx={{
-          width: "100%",
+          height: '100%',
+          maxWidth: 'auto',
           marginTop: -50,
+          objectFit: 'cover',
+          overflow: 'hidden'
         }}
-      /> */}
-
-      {/* <Box as="picture">
-        <source media={sources[0]} />
-  
-        <img
-          src={HeaderImgMobile}
-          alt="monitor stand"
-          sx={{
-            width: "100%",
-            objectFit: "cover",
-          }}
-        />
-      </Box> */}
-
-      {/* <Img fluid={sources} sx={{ width: "100%", objectFit: 'cover'}} /> */}
-
-      <Image src={HeaderImgMobile} alt="monitor stand" />
+      >
+        <source media="(min-width:400px)" srcset={HeaderImgDesktop} />
+        <source media="(min-width:375px)" srcset={HeaderImgMobile} />
+        <img src={HeaderImgMobile} alt="monitor stand" style={{ width: '100%'}} />
+      </Box>
       <NavMobile isOpenNav={isOpenNav} setIsOpenNav={setIsOpenNav} />
-    </Box>
+    </>
   );
 };
 
@@ -126,7 +128,7 @@ const NavMobile = ({ isOpenNav, setIsOpenNav }) => {
           m: 0,
         }}
       >
-        <Flex sx={{ flexDirection: 'column'}}>
+        <Flex sx={{ flexDirection: "column" }}>
           <NavLink>
             <Heading sx={{ p: 30 }}>About</Heading>
           </NavLink>

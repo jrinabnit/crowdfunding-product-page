@@ -1,8 +1,7 @@
 import React from "react";
-import { Card, Flex, Heading, Paragraph, Button , Close } from "theme-ui";
+import { Card, Flex, Heading, Paragraph, Button } from "theme-ui";
 
 const ProductCard = ({ quantity, text, title, pledge, openModalOne }) => {
- 
   return (
     <Card
       sx={{
